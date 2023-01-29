@@ -1,5 +1,5 @@
 import Axios from 'axios';
 const axiosBaseURL = Axios.create({
-    baseURL:'http://localhost:8000/'
+    baseURL:'https://voosh-fxyt.onrender.com/'
 });
 export default axiosBaseURL

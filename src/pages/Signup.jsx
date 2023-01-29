@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axiosBaseURL from './baseurl'
 const Signup = () => {
+    console.log(axiosBaseURL);
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
     const [password, setPassword] = useState("");
@@ -11,6 +12,7 @@ const Signup = () => {
 
         e.preventDefault();
         try {
+            console.log(axiosBaseURL)
             const res = await axiosBaseURL.post(`api/add-user`, {
                 name, password, number
             });
