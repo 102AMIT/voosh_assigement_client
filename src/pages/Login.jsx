@@ -1,29 +1,29 @@
-import React,{useState} from 'react';
-import {Link} from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 
 const Login = () => {
-        const [error, setError] = useState(false);
-        const [number, setNumber] = useState("");
-        const [password, setPassword] = useState("");
-        const [verify, setVerify] = useState(false);
-        
-    const handleSubmit = async(e) => {
+    const [error, setError] = useState(false);
+    const [number, setNumber] = useState("");
+    const [password, setPassword] = useState("");
+    const [verify, setVerify] = useState(false);
+
+    const handleSubmit = async (e) => {
 
         e.preventDefault();
         try {
-            const headers ={key:"sdadhhsahd"};
+            const headers = { key: "sdadhhsahd" };
 
-            const res = await axios.post("http://localhost:8000/api/login-user", {password, number},{headers});
+            const res = await axios.post("http://localhost:8000/api/login-user", { password, number }, { headers });
             toast("Login successfully")
 
             // store the token and id in the local storage
-            const token=res.data.token;
-            localStorage.setItem("token",token)
-            localStorage.setItem("id",res.data.id)
+            const token = res.data.token;
+            localStorage.setItem("token", token)
+            localStorage.setItem("id", res.data.id)
             setVerify(true);
 
             // res.data && window.location.replace('/addorder');
@@ -40,21 +40,21 @@ const Login = () => {
         <div className="container">
             <div className="screen">
                 <div className="screen__content">
-            {
-            verify && <Link to="/addorder"><button className='order-details-btn'>Add Order</button></Link>
-            }
+                    {
+                        verify && <Link to="/addorder"><button className='order-details-btn'>Add Order</button></Link>
+                    }
 
                     <form className="login" onSubmit={handleSubmit}>
                         <h3 >Login /AddUser</h3>
                         <div className="login__field">
                             <i className="login__icon fas fa-user" />
                             <input type="text" className="login__input" name='number' placeholder="Phone Number"
-                            onChange={e => setNumber(e.target.value)} />
+                                onChange={e => setNumber(e.target.value)} />
                         </div>
                         <div className="login__field">
                             <i className="login__icon fas fa-lock" />
                             <input type="password" className="login__input" name='password' placeholder="Password"
-                            onChange={e => setPassword(e.target.value)} />
+                                onChange={e => setPassword(e.target.value)} />
                         </div>
                         <button className="button login__submit" type='submit'>
                             <span className="button__text">Log In Now</span>

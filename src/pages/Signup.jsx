@@ -4,12 +4,12 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Signup = () => {
-        const [error, setError] = useState(false);
-        const [name, setName] = useState("");
-        const [number, setNumber] = useState("");
-        const [password, setPassword] = useState("");
-        const handleSubmit = async (e) => {
-        
+    const [error, setError] = useState(false);
+    const [name, setName] = useState("");
+    const [number, setNumber] = useState("");
+    const [password, setPassword] = useState("");
+    const handleSubmit = async (e) => {
+
         e.preventDefault();
         try {
             const res = await axios.post("http://localhost:8000/api/add-user", {
