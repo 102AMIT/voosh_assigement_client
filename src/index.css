@@ -19,7 +19,7 @@ code {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;	
-	font-family: Raleway, sans-serif;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
 }
 
 body {
@@ -133,6 +133,13 @@ body {
 	outline: none;
 	border-bottom-color: #6A679E;
 }
+h3{
+	border-bottom-color: #6A679E;
+	border-bottom: 2px solid #0b0b87;
+  color: #6A679E;
+}
+  
+
 
 .login__submit {
 	background: #fff;
@@ -164,30 +171,86 @@ body {
 	margin-left: auto;
 	color: #7875B5;
 }
-
-.social-login {	
-	position: absolute;
-	height: 140px;
-	width: 160px;
-	text-align: center;
-	bottom: 0px;
-	right: 0px;
-	color: #fff;
+.orderDetails{
+	width: 100%;
+	height: 10%;
+	background-color: #8980D5 ;
+	border-radius: 3px;
+	padding: 5px;
+	border: 2px solid white;
 }
 
-.social-icons {
+.text-order{
+	font-size: 16px;
+	color: rgb(47, 44, 44);
+	border-bottom:2px solid #0b0b87;
+}
+
+
+.order-details-btn{
+	height: 30px;
+	width: 120px;
+	margin-top: 20px;
+	background-color: #2da891;
+	border-radius: 5px;
+	color:rgb(216, 214, 207);
+	cursor: pointer;
+	border: none;
+	font-size: 20px;
+}
+
+/* nav bar */
+nav {
+	display: flex; /* 1 */
+	justify-content: space-between; /* 2 */
+	padding: 1rem 2rem; /* 3 */
+	background: #cfd8dc; /* 4 */
+  }
+  
+  nav ul {
+	display: flex; /* 5 */
+	list-style: none; /* 6 */
+  }
+  
+  nav li {
+	padding-left: 1rem; /* 7! */
+	text-decoration: none;
+	
+  }
+
+
+  .orderlistContainer{
+		height: 100%;
+		width: 100%;
+		display: flex;
+		margin-right: 20px;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		
+  }
+  .orderlist{
+	padding: 20px;
+	background-color: rgb(187, 183, 183);
+	margin: 29px 29px;
+	width: 450px;
+	border-radius: 20px;
+	
+  }
+  .orderdetails-btn{
 	display: flex;
 	align-items: center;
-	justify-content: center;
-}
+	justify-content: space-between;
+  }
+  .itemName{
+	font-size: 20px;
+	margin: 8px 20px;
+  }
+  .sub-total{
+	font-size: 20px;
+	margin: 8px 20px;
+  }
 
-.social-login__icon {
-	padding: 20px 10px;
-	color: #fff;
-	text-decoration: none;	
-	text-shadow: 0px 0px 8px #7875B5;
-}
-
-.social-login__icon:hover {
-	transform: scale(1.5);	
-}
+  .number{
+	font-size: 20px;
+	margin: 8px 20px;
+  }
