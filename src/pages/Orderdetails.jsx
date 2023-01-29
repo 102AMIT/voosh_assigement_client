@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import OrderCard from '../components/OrderCard'
-import axios from 'axios'
+import axiosBaseURL from './baseurl'
+
 
 
 const Orderdetails = () => {
@@ -12,7 +13,7 @@ const Orderdetails = () => {
     const headers = {
       authorization: token
     }
-    const res = await axios.get(`http://localhost:8000/api/get-order?id=${id}`, { headers });
+    const res = await axiosBaseURL.get(`api/get-order?id=${id}`, { headers });
     console.log(res);
     setOrder(res.data.orders);
 

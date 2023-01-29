@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axiosBaseURL from './baseurl'
 const Signup = () => {
-    const [error, setError] = useState(false);
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
     const [password, setPassword] = useState("");
@@ -12,7 +11,7 @@ const Signup = () => {
 
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:8000/api/add-user", {
+            const res = await axiosBaseURL.post(`api/add-user`, {
                 name, password, number
             });
             toast("Sign up successfully")
@@ -20,7 +19,6 @@ const Signup = () => {
             res.data && window.location.replace('/');
         } catch (err) {
             toast.error("Please check your Input")
-            setError(true)
 
         }
     }
@@ -54,7 +52,6 @@ const Signup = () => {
                     <span style={{ textAlign: "center", color: "black", fontWeight: "bolder", width: "100%", marginLeft: "50px" }} >Not A Member?
                         <Link to="/" style={{ color: "lightgreen", fontSize: "20px" }}>Login Now</Link></span>
                     <br />
-                    {error && <ToastContainer position="top-center" reverseOrder={false} />}
                 </div>
                 <div className="screen__background">
                     <span className="screen__background__shape screen__background__shape4" />

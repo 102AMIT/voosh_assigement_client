@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify';
-import axios from 'axios'
+import axiosBaseURL from './baseurl'
+
 
 const Addorder = () => {
     const [number, setNumber] = useState("");
@@ -23,7 +24,7 @@ const Addorder = () => {
                 authorization: token
             }
 
-            const res = await axios.post("http://localhost:8000/api/add-order", { sub_total, number, item_name }, { headers });
+            const res = await axiosBaseURL.post(`api/add-order`, { sub_total, number, item_name }, { headers });
 
             toast("Order added successfully")
 
@@ -34,7 +35,7 @@ const Addorder = () => {
             // res.data && window.location.replace('/orderdetails');
 
         } catch (err) {
-            toast.error("Something went wrong")
+            toast.error("Check Your Ph.Number")
             console.log(err);
 
         }

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+import axiosBaseURL from './baseurl'
+
 
 
 const Login = () => {
-    const [error, setError] = useState(false);
     const [number, setNumber] = useState("");
     const [password, setPassword] = useState("");
     const [verify, setVerify] = useState(false);
@@ -17,7 +17,7 @@ const Login = () => {
         try {
             const headers = { key: "sdadhhsahd" };
 
-            const res = await axios.post("http://localhost:8000/api/login-user", { password, number }, { headers });
+            const res = await axiosBaseURL.post(`api/login-user`, { password, number }, { headers });
             toast("Login successfully")
 
             // store the token and id in the local storage
@@ -29,8 +29,6 @@ const Login = () => {
             // res.data && window.location.replace('/addorder');
         } catch (err) {
             toast.error("Wrong Credentials")
-            setError(true)
-
         }
 
     }
@@ -65,7 +63,6 @@ const Login = () => {
                         <Link to="/signup" style={{ color: "lightgreen", fontSize: "20px" }}>Sign Up Now</Link></span>
                     <br />
 
-                    {error && <ToastContainer position="top-center" reverseOrder={false} />}
 
                 </div>
                 <div className="screen__background">
