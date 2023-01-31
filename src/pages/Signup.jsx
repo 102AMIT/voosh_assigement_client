@@ -8,14 +8,18 @@ const Signup = () => {
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
     const [password, setPassword] = useState("");
+    const [isloading, setIsLoading] = useState(false);
     const handleSubmit = async (e) => {
 
         e.preventDefault();
         try {
+            setIsLoading(true);
             console.log(axiosBaseURL)
             const res = await axiosBaseURL.post(`api/add-user`, {
                 name, password, number
             });
+
+            
             toast("Sign up successfully")
 
             res.data && window.location.replace('/');
@@ -24,10 +28,17 @@ const Signup = () => {
 
         }
     }
+    
 
     return (
+        
         <div className="container">
+            {
+            isloading ? <h1>Loading please wait</h1>
+            :
+            
             <div className="screen">
+            
                 <div className="screen__content">
                     <form className="login" onSubmit={handleSubmit}>
                         <h3 >SignUp /Register</h3>
@@ -46,7 +57,7 @@ const Signup = () => {
                             <input type="number" className="login__input" name='number' placeholder="Phone Number"
                                 onChange={e => setNumber(e.target.value)} />
                         </div>
-                        <button className="button login__submit" type='submit'>
+                        <button className="button login__submit" type='submit' >
                             <span className="button__text">Sign UP Now</span>
                             <i className="button__icon fas fa-chevron-right" />
                         </button>
@@ -55,13 +66,16 @@ const Signup = () => {
                         <Link to="/" style={{ color: "lightgreen", fontSize: "20px" }}>Login Now</Link></span>
                     <br />
                 </div>
+                
                 <div className="screen__background">
                     <span className="screen__background__shape screen__background__shape4" />
                     <span className="screen__background__shape screen__background__shape3" />
                     <span className="screen__background__shape screen__background__shape2" />
                     <span className="screen__background__shape screen__background__shape1" />
                 </div>
+                
             </div>
+            }
         </div>
     )
 }
