@@ -47,12 +47,12 @@ const Login = () => {
                         <div className="login__field">
                             <i className="login__icon fas fa-user" />
                             <input type="text" className="login__input" name='number' placeholder="Phone Number"
-                                onChange={e => setNumber(e.target.value)} />
+                              required  onChange={e => setNumber(e.target.value)} />
                         </div>
                         <div className="login__field">
                             <i className="login__icon fas fa-lock" />
                             <input type="password" className="login__input" name='password' placeholder="Password"
-                                onChange={e => setPassword(e.target.value)} />
+                              required  onChange={e => setPassword(e.target.value)} />
                         </div>
                         <button className="button login__submit" type='submit'>
                             <span className="button__text">Log In Now</span>

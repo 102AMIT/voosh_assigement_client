@@ -13,12 +13,13 @@ const Signup = () => {
 
         e.preventDefault();
         try {
-            setIsLoading(true);
+
+            
             console.log(axiosBaseURL)
             const res = await axiosBaseURL.post(`api/add-user`, {
                 name, password, number
             });
-
+            setIsLoading(true);
             
             toast("Sign up successfully")
 
@@ -45,17 +46,17 @@ const Signup = () => {
                         <div className="login__field">
                             <i className="login__icon fas fa-user" />
                             <input type="text" className="login__input" name='name' placeholder="Enter Your Name"
-                                onChange={e => setName(e.target.value)} />
+                               required onChange={e => setName(e.target.value)} />
                         </div>
                         <div className="login__field">
                             <i className="login__icon fas fa-lock" />
                             <input type="password" className="login__input" name='password' placeholder="Password"
-                                onChange={e => setPassword(e.target.value)} />
+                              required  onChange={e => setPassword(e.target.value)} />
                         </div>
                         <div className="login__field">
                             <i className="login__icon fas fa-user" />
-                            <input type="number" className="login__input" name='number' placeholder="Phone Number"
-                                onChange={e => setNumber(e.target.value)} />
+                            <input type="number" className="login__input" name='number'title="Error Message" pattern="[1-9]{1}[0-9]{9}" placeholder="Phone Number"
+                               required onChange={e => setNumber(e.target.value)} />
                         </div>
                         <button className="button login__submit" type='submit' >
                             <span className="button__text">Sign UP Now</span>

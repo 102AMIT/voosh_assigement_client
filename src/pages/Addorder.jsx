@@ -61,17 +61,17 @@ const Addorder = () => {
                         <div className="login__field">
                             <i className="login__icon fas fa-user" />
                             <input type="number" className="login__input" name='number' placeholder="Phone Number"
-                                onChange={(e) => setNumber(e.target.value)} />
+                               required onChange={(e) => setNumber(e.target.value)} />
                         </div>
                         <div className="login__field">
                             <i className="login__icon fas fa-lock" />
                             <input type="number" className="login__input" name='sub_total' placeholder="sub_total"
-                                onChange={e => setSubTotal(e.target.value)} />
+                               required onChange={e => setSubTotal(e.target.value)} />
                         </div>
                         <div className="login__field">
                             <i className="login__icon fas fa-lock" />
                             <input type="text" className="login__input" name='item_name' placeholder="Item name"
-                                onChange={e => setItemName(e.target.value)} />
+                               required onChange={e => setItemName(e.target.value)} />
                         </div>
                         <button className="button login__submit" type='submit'>
                             <span className="button__text">Order Now</span>
