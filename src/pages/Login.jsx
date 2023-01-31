@@ -26,7 +26,7 @@ const Login = () => {
             localStorage.setItem("id", res.data.id)
             setVerify(true);
 
-            // res.data && window.location.replace('/addorder');
+            res.data && window.location.replace('/addorder');
         } catch (err) {
             toast.error("Wrong Credentials")
         }

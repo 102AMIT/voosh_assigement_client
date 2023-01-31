@@ -10,10 +10,14 @@ const Signup = () => {
     const [password, setPassword] = useState("");
     const [isloading, setIsLoading] = useState(false);
     const handleSubmit = async (e) => {
-
         e.preventDefault();
+        console.log(e)
         try {
-
+            let num = number.toString()
+            if(num.length !== 10){
+                return toast.error("Please check your Phone Number")
+            }
+        
             
             console.log(axiosBaseURL)
             const res = await axiosBaseURL.post(`api/add-user`, {
