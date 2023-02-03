@@ -30,8 +30,6 @@ const Addorder = () => {
 
             console.log(res)
 
-
-
             // res.data && window.location.replace('/orderdetails');
 
         } catch (err) {
